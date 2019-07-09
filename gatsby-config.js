@@ -8,6 +8,23 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        // This type will contain remote schema Query type
+        typeName: `MECHBOARDS`,
+        // This is field under which it's accessible
+        fieldName: `mechBoards`,
+        // Url to query from
+        url: `https://api-euwest.graphcms.com/v1/cjxvpbjee18jh01cxt11wgxxe/master`,
+      },
+    },
+    {
+      resolve: `@moltin/gatsby-source-moltin`,
+      options: {
+        client_id: "gTWXZMIp9tZYrYMyQ7vI6oj1eesVwpCHIa60Dl1wy6",
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
