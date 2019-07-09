@@ -1,7 +1,27 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+exports.createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    MECHBOARDS_Keyboard: {
+      mo_products: {
+        type: [`MoltinProduct`],
+        resolve: (source, args, context, info) => {
+          // if (source.sku === null) {
+          //   return null
+          // }
+          return context.nodeModel.runQuery({
+            query: {
+              filter: {
+                sku: {
+                  in: source.sku,
+                },
+              },
+            },
+            type: "MoltinProduct",
+            firstOnly: false,
+          })
+        },
+      },
+    },
+  }
 
-// You can delete this file if you're not using it
+  createResolvers(resolvers)
+}
