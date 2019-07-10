@@ -29,44 +29,35 @@ exports.createResolvers = ({ createResolvers }) => {
   createResolvers(resolvers)
 }
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
+  const keyboardTemplate = path.resolve("src/templates/keyboardTemplate.js")
 
-  return new Promise((resolve, reject) => {
-    const keyboardTemplate = path.resolve(`src/templates/keyboardTemplate`)
-    // Query for markdown nodes to use in creating pages.
-    resolve(
-      graphql(
-        `
-          {
-            mechBoards {
-              keyboards {
-                id
-                slug
-              }
-            }
-          }
-        `
-      ).then(result => {
-        if (result.errors) {
-          reject(result.errors)
+  return graphql(`
+    {
+      mechBoards {
+        keyboards {
+          name
+          slug
         }
+      }
+    }
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors
+    }
 
-        // Create pages for each markdown file.
-        result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-          const path = node.mechBoards.keyboards.slug
-          createPage({
-            path,
-            component: keyboardTemplate,
-            // In your blog post template's graphql query, you can use path
-            // as a GraphQL variable to query for data from the markdown file.
-            context: {
-              path,
-            },
-          })
-        })
+    const boards = result.data.mechBoards.keyboards
+
+    boards.forEach((board, index) => {
+      createPage({
+        path: board.slug,
+        component: keyboardTemplate,
+        context: {
+          slug: board.slug,
+        },
       })
-    )
+    })
   })
 }
 
