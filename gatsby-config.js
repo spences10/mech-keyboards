@@ -8,6 +8,13 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     {
+      resolve: `gatsby-mdx`,
+      options: {
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [],
+      },
+    },
+    {
       resolve: `gatsby-source-graphql`,
       options: {
         // This type will contain remote schema Query type
