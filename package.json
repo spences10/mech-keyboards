@@ -2,7 +2,7 @@
   "name": "mech-keyboards",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.57",
+  "version": "0.1.58",
   "author": "Scott Spence <spences10apps@gmail.com>",
   "scripts": {
     "build": "gatsby build",
@@ -28,7 +28,7 @@
     "gatsby-plugin-mdx": "1.0.23",
     "gatsby-plugin-offline": "2.2.5",
     "gatsby-plugin-react-helmet": "3.1.3",
-    "gatsby-plugin-sharp": "2.2.10",
+    "gatsby-plugin-sharp": "2.2.11",
     "gatsby-plugin-styled-components": "3.1.2",
     "gatsby-source-filesystem": "2.1.9",
     "gatsby-source-graphql": "2.1.5",
