@@ -2,7 +2,7 @@
   "name": "mech-keyboards",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.186",
+  "version": "0.1.187",
   "author": "Scott Spence <spences10apps@gmail.com>",
   "scripts": {
     "build": "gatsby build",
@@ -19,7 +19,7 @@
   "dependencies": {
     "@mdx-js/mdx": "1.5.5",
     "@mdx-js/react": "1.5.5",
-    "@moltin/gatsby-source-moltin": "1.6.3",
+    "@moltin/gatsby-source-moltin": "1.8.0",
     "babel-plugin-styled-components": "1.10.7",
     "gatsby": "2.19.12",
     "gatsby-image": "2.2.40",
