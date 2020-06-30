@@ -1,12 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Mech Keyboards E-commerce`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-stripe`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -14,32 +18,6 @@ module.exports = {
         gatsbyRemarkPlugins: [],
       },
     },
-    {
-      resolve: `gatsby-source-graphql`,
-      options: {
-        // This type will contain remote schema Query type
-        typeName: `MECHBOARDS`,
-        // This is field under which it's accessible
-        fieldName: `mechBoards`,
-        // Url to query from
-        url: `https://api-euwest.graphcms.com/v1/cjxvpbjee18jh01cxt11wgxxe/master`,
-      },
-    },
-    {
-      resolve: `@moltin/gatsby-source-moltin`,
-      options: {
-        client_id: "gTWXZMIp9tZYrYMyQ7vI6oj1eesVwpCHIa60Dl1wy6",
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -49,11 +27,8 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `./static/gatsby-icon.png`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 }
